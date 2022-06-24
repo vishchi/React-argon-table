@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Progress_bar = ({progress,height}) => {
+const Progress_bar = ({progress}) => {
     let bgcolor = '';
     if(progress === '100')
         bgcolor = 'green';
@@ -14,25 +14,20 @@ const Progress_bar = ({progress,height}) => {
         bgcolor = 'orange';
 	
 	const Parentdiv = {
-		height: height,
-		width: '100%',
 		backgroundColor: 'whitesmoke',
-		borderRadius: 40,
-		margin: 50
+		borderRadius: 50
 	}
 	
 	const Childdiv = {
-		height: '100%',
 		width: `${progress}%`,
 		backgroundColor: bgcolor,
-	borderRadius:40,
+		borderRadius:50,
 		textAlign: 'right'
 	}
 	
 	const progresstext = {
-		padding: 10,
 		color: 'black',
-		fontWeight: 900
+		fontWeight: 600
 	}
 		
 	return (

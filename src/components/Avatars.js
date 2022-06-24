@@ -5,7 +5,7 @@ import Tooltip from '@mui/material/Tooltip';
 
 export default function GroupAvatars() {
   return (
-    <AvatarGroup >
+    <AvatarGroup style={{'justifyContent': 'left'}}>
     <Tooltip title={"Remy Sharp"}>
         <Avatar alt="Remy Sharp" src="https://picsum.photos/100" />
     </Tooltip>

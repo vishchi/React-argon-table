@@ -6,13 +6,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import TableData from './LoadHeadersButton';
 import { useSelector } from 'react-redux';
 import StatusBullet from "./StatusBullet";
 import ProgressBar from './ProgressBar';
 import { makeStyles } from '@material-ui/styles';
 import GroupAvatars from './Avatars';
 import rows from '../constants/Data'
+
 
 const statusColors = {
   completed: "success",
@@ -21,20 +21,20 @@ const statusColors = {
   "on schedule": "info"
 };
 
-const useStyles = makeStyles((theme) => ({table: {
-    minWidth: 650
-},
-TableContainer: {
-    borderRadius: 15,
-    
-},
+const useStyles = makeStyles(() => ({
 tableHeaderCell: {
     fontWeight: 'bold',
-    backgroundColor: '#ce93d8'
+    backgroundColor: '#ced1d6'
 },
 tableCell: {
-    paddingRight: 4,
-    paddingLeft: 5
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    paddingTop: '100px'
+  },
+  tableRow: {
+    borderCollapse: 'collapse',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap'
   },
 }))
 
@@ -43,31 +43,31 @@ export default function BasicTable() {
     const headers = useSelector(state => state.headers);
   return (
     <>
-    <TableData />
-    <TableContainer component={Paper} className={classes.TableContainer}>
-      <Table  aria-label="simple table">
-        <TableHead className= {classes.tableHeaderCell}>
-          <TableRow>
+    
+    <TableContainer component={Paper}>
+      <Table  aria-label="simple table" className= {classes.tableCell}>
+        <TableHead>
+          <TableRow className= {classes.tableHeaderCell}>
             {headers.map((header) => {
                 return <TableCell key ={header} align="left">{header}</TableCell>
             })}
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody >
           {rows.map((row) => (
             <TableRow
               key={row.Project}
             >
-              <TableCell component="th" scope="row">
+              <TableCell className= {classes.tableRow}>
                 {row.Project }
               </TableCell>
-              <TableCell>{row.Budget + " USD"}</TableCell>
-              <TableCell>
+              <TableCell className= {classes.tableRow}>{row.Budget + " USD"}</TableCell>
+              <TableCell className= {classes.tableRow}>
                 <StatusBullet  color={statusColors[row.Status]} size="sm"/>
                 {` ${row.Status}`}
               </TableCell>
-              <TableCell align='left'><GroupAvatars /></TableCell>
-              <TableCell>
+              <TableCell className= {classes.tableRow}><GroupAvatars /></TableCell>
+              <TableCell className= {classes.tableRow}>
                 <ProgressBar  progress={row.Completion}  />
                 </TableCell>
             </TableRow>

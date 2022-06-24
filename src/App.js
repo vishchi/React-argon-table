@@ -1,4 +1,6 @@
 import ArgonTable from './components/ArgonTable';
+import LoadHeadersButton from './components/LoadHeadersButton';
+import { Box, Container } from '@mui/material';
 
 function App() {
   const styling = {
@@ -12,7 +14,12 @@ function App() {
   return (
     <>
       <h1 style = {styling}> Argon Table </h1>
-      <ArgonTable />
+      <Box textAlign='center' sx={{paddingBottom: '20px'}}>
+        <LoadHeadersButton />
+      </Box>
+      <Container>
+        <ArgonTable />
+      </Container>
       </>
   );
 }

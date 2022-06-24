@@ -2,15 +2,15 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import Button from '@mui/material/Button';
 
-const TableData = () => {
+const LoadHeadersButton = () => {
     const dispatch = useDispatch();
-    const tableHeaders = [ 'Project','Budget','Status','Users','Completion']
+    const tableHeaders = [ 'PROJECT','BUDGET','STATUS','USERS','COMPLETION']
     const loadDataHandler = () => {
         dispatch({type:'HEADERS', payload: tableHeaders});
     }
   return (
-    <Button variant="outlined" align= "center" onClick = {loadDataHandler}>Load Headers</Button>
+    <Button variant="outlined"  color="secondary" onClick = {loadDataHandler}>Load Headers</Button>
   )
 }
 
-export default TableData;
+export default LoadHeadersButton;
