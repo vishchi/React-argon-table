@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import ArgonTable from './components/ArgonTable';
 
 function App() {
+  const styling = {
+    'textAlign': 'center',
+    'border': '5px solid #ddd',
+    'color': 'white',
+    'padding': '5px',
+    'backgroundColor': 'purple',
+
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 style = {styling}> Argon Table </h1>
+      <ArgonTable />
+      </>
   );
 }
 
