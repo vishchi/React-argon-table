@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
 
@@ -10,17 +9,9 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 0,
     flexShrink: 0
   },
-  sm: {
-    height: 15,
-    width: 15
-  },
-  md: {
-    height: 15,
-    width: 15
-  },
-  lg: {
-    height: 15,
-    width: 15
+  size: {
+    height: 7,
+    width: 7
   },
   neutral: { backgroundColor: '#fff' },
   primary: { backgroundColor: '#ccc' },
@@ -31,41 +22,29 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const StatusBullet = props => {
-  const { className, size, color, ...rest } = props;
-
+  const { className, status } = props;
   const classes = useStyles();
+  const statusColors = {
+    completed: "success",
+    pending: "warning",
+    delayed: "danger",
+    "on schedule": "info"
+  };
+  const color = statusColors[status];
+  const size = "size";
 
   return (
     <span
-      {...rest}
       className={clsx(
         {
           [classes.root]: true,
-          [classes[size]]: size,
+          [classes.size]: size,
           [classes[color]]: color
         },
         className
       )}
     />
   );
-};
-
-StatusBullet.propTypes = {
-  className: PropTypes.string,
-  color: PropTypes.oneOf([
-    'neutral',
-    'primary',
-    'info',
-    'success',
-    'warning',
-    'danger'
-  ]),
-  size: PropTypes.oneOf(['sm', 'md', 'lg'])
-};
-
-StatusBullet.defaultProps = {
-  size: 'md',
-  color: 'default'
 };
 
 export default StatusBullet;

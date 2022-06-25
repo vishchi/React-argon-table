@@ -12,13 +12,6 @@ import ProgressBar from './ProgressBar';
 import { makeStyles } from '@material-ui/styles';
 import GroupAvatars from './Avatars';
 
-const statusColors = {
-  completed: "success",
-  pending: "warning",
-  delayed: "danger",
-  "on schedule": "info"
-};
-
 const useStyles = makeStyles(() => ({
 tableHeaderCell: {
     backgroundColor: '#ced1d6'
@@ -57,7 +50,7 @@ export default function BasicTable() {
                 {"$" + row.Budget + " USD"}
               </TableCell>
               <TableCell>
-                <StatusBullet  color={statusColors[row.Status]} size="sm"/>
+                <StatusBullet  status={row.Status}/>
                 {` ${row.Status}`}
               </TableCell>
               <TableCell>
