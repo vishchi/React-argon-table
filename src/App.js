@@ -8,8 +8,7 @@ function App() {
     'border': '5px solid #ddd',
     'color': 'white',
     'padding': '5px',
-    'backgroundColor': 'purple',
-
+    'backgroundColor': 'purple'
   }
   return (
     <>
@@ -20,7 +19,7 @@ function App() {
       <Container>
         <ArgonTable />
       </Container>
-      </>
+    </>
   );
 }
 

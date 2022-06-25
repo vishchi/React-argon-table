@@ -6,7 +6,6 @@ import tableHeaders from '../constants/Headers';
 
 const LoadHeadersButton = () => {
     const dispatch = useDispatch();
-
     const loadTableHandler = () => {
         dispatch({type:'HEADERS', payload: tableHeaders});
         dispatch({type:'DATA', payload: rows});

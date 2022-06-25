@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Progress_bar = ({progress}) => {
+const ProgressBar = ({progress}) => {
     let bgcolor = '';
     if(progress === '100')
         bgcolor = 'green';
@@ -32,11 +32,11 @@ const Progress_bar = ({progress}) => {
 		
 	return (
 	<div style={Parentdiv}>
-	<div style={Childdiv}>
-		<span style={progresstext}>{`${progress}%`}</span>
-	</div>
+		<div style={Childdiv}>
+			<span style={progresstext}>{`${progress}%`}</span>
+		</div>
 	</div>
 	)
 }
 
-export default Progress_bar;
+export default ProgressBar;

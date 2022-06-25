@@ -4,7 +4,7 @@ function createData(Project, Budget, Status, Completion) {
     return { id, Project, Budget, Status, Completion };
   }
 
- let rows =[
+ const rows =[
     createData('Argon Design System',2500,'pending','60'),
     createData('Angular Now UI Kit',1800,'completed','100'),
     createData('Black Dashboard',3150,'delayed','72'),

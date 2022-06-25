@@ -12,7 +12,6 @@ import ProgressBar from './ProgressBar';
 import { makeStyles } from '@material-ui/styles';
 import GroupAvatars from './Avatars';
 
-
 const statusColors = {
   completed: "success",
   pending: "warning",
@@ -23,7 +22,7 @@ const statusColors = {
 const useStyles = makeStyles(() => ({
 tableHeaderCell: {
     backgroundColor: '#ced1d6'
-},
+  },
 tableCell: {
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -37,7 +36,6 @@ export default function BasicTable() {
     const rows = useSelector(state => state.data);
   return (
     <>
-    
     <TableContainer component={Paper}>
       <Table  aria-label="simple table" className= {classes.tableCell}>
         <TableHead>
@@ -55,15 +53,19 @@ export default function BasicTable() {
               <TableCell>
                 {row.Project}
               </TableCell>
-              <TableCell>{"$" + row.Budget + " USD"}</TableCell>
+              <TableCell>
+                {"$" + row.Budget + " USD"}
+              </TableCell>
               <TableCell>
                 <StatusBullet  color={statusColors[row.Status]} size="sm"/>
                 {` ${row.Status}`}
               </TableCell>
-              <TableCell><GroupAvatars /></TableCell>
+              <TableCell>
+                <GroupAvatars />
+              </TableCell>
               <TableCell>
                 <ProgressBar  progress={row.Completion}  />
-                </TableCell>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
