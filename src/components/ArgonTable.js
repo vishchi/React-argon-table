@@ -19,7 +19,8 @@ tableHeaderCell: {
 tableCell: {
     marginLeft: 'auto',
     marginRight: 'auto',
-    paddingTop: '100px'
+    paddingTop: '100px',
+    backgroundColor: '#f0ebf2'
   }
 }))
 

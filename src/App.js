@@ -5,10 +5,12 @@ import { Box, Container } from '@mui/material';
 function App() {
   const styling = {
     'textAlign': 'center',
-    'border': '5px solid #ddd',
+    'border': '2px solid black',
     'color': 'white',
     'padding': '5px',
-    'backgroundColor': 'purple'
+    'backgroundColor': 'purple',
+    'marginLeft': '7%',
+    'marginRight': '7%'
   }
   return (
     <>
