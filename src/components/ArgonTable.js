@@ -11,7 +11,6 @@ import StatusBullet from "./StatusBullet";
 import ProgressBar from './ProgressBar';
 import { makeStyles } from '@material-ui/styles';
 import GroupAvatars from './Avatars';
-import rows from '../constants/Data'
 
 
 const statusColors = {
@@ -23,24 +22,19 @@ const statusColors = {
 
 const useStyles = makeStyles(() => ({
 tableHeaderCell: {
-    fontWeight: 'bold',
     backgroundColor: '#ced1d6'
 },
 tableCell: {
     marginLeft: 'auto',
     marginRight: 'auto',
     paddingTop: '100px'
-  },
-  tableRow: {
-    borderCollapse: 'collapse',
-    overflow: 'hidden',
-    whiteSpace: 'nowrap'
-  },
+  }
 }))
 
 export default function BasicTable() {
     const classes = useStyles()
     const headers = useSelector(state => state.headers);
+    const rows = useSelector(state => state.data);
   return (
     <>
     
@@ -48,26 +42,26 @@ export default function BasicTable() {
       <Table  aria-label="simple table" className= {classes.tableCell}>
         <TableHead>
           <TableRow className= {classes.tableHeaderCell}>
-            {headers.map((header) => {
+            {headers && headers.map((header) => {
                 return <TableCell key ={header} align="left">{header}</TableCell>
             })}
           </TableRow>
         </TableHead>
         <TableBody >
-          {rows.map((row) => (
+          {rows && rows.map((row) => (
             <TableRow
               key={row.Project}
             >
-              <TableCell className= {classes.tableRow}>
-                {row.Project }
+              <TableCell>
+                {row.Project}
               </TableCell>
-              <TableCell className= {classes.tableRow}>{row.Budget + " USD"}</TableCell>
-              <TableCell className= {classes.tableRow}>
+              <TableCell>{"$" + row.Budget + " USD"}</TableCell>
+              <TableCell>
                 <StatusBullet  color={statusColors[row.Status]} size="sm"/>
                 {` ${row.Status}`}
               </TableCell>
-              <TableCell className= {classes.tableRow}><GroupAvatars /></TableCell>
-              <TableCell className= {classes.tableRow}>
+              <TableCell><GroupAvatars /></TableCell>
+              <TableCell>
                 <ProgressBar  progress={row.Completion}  />
                 </TableCell>
             </TableRow>
